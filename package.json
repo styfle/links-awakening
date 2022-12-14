@@ -1,0 +1,13 @@
+{
+  "name": "links-awakening",
+  "version": "0.0.1",
+  "description": "Recursively check a website for broken links",
+  "main": "./index.mjs",
+  "bin": {
+    "links-awakening": "./index.mjs"
+  },
+  "dependencies": {
+    "cheerio": "1.0.0-rc.12",
+    "node-fetch": "3.3.0"
+  }
+}
