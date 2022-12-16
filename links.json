@@ -1,0 +1,18 @@
+{
+  "config": [
+    {
+      "url": "https://www.youtube.com",
+      "body": "This video isn't available",
+      "status": 200
+    },
+    {
+      "url": "https://www.twitter.com",
+      "body": "this page doesn't exist",
+      "status": 200
+    },
+    {
+      "url": "https://vercel.com/docs",
+      "status": 302
+    }
+  ]
+}
