@@ -2,12 +2,21 @@
   "name": "links-awakening",
   "version": "0.0.1",
   "description": "Recursively check a website for broken links",
-  "main": "./index.mjs",
+  "type": "module",
+  "main": "dist/index.js",
   "bin": {
-    "links-awakening": "./index.mjs"
+    "links-awakening": "dist/bin.js"
+  },
+  "scripts": {
+    "build": "tsc"
   },
   "dependencies": {
-    "cheerio": "1.0.0-rc.12",
-    "node-fetch": "3.3.0"
+    "htmlparser2": "^8.0.1"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.4"
   }
 }
