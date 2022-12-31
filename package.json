@@ -1,13 +1,15 @@
 {
   "name": "links-awakening",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Recursively check a website for broken links",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
     "links-awakening": "dist/bin.js"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc"
   },
