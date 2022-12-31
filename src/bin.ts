@@ -1,4 +1,5 @@
-import { awaken, AwakenResult } from './index.js'
+#!/usr/bin/env node
+import { awaken, AwakenResult } from './index.js';
 
 // @ts-ignore
 const process = globalThis.process;
