@@ -4,16 +4,8 @@ Recursively check a website for broken links.
 
 ## Usage
 
-Install
-
 ```sh
-npm i -g links-awakening
-```
-
-Run
-
-```sh
-links-awakening 'https://styfle.dev'
+npx links-awakening 'https://styfle.dev'
 ```
 
 Output
