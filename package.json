@@ -17,6 +17,7 @@
   "dependencies": {
     "htmlparser2": "^8.0.1"
   },
+  "packageManager": "pnpm@7.21.0",
   "engines": {
     "node": ">=18"
   },
