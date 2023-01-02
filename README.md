@@ -2,6 +2,8 @@
 
 Recursively check a website for broken links.
 
+<img alt="Links Awakening" src="https://styfle.dev/images/projects/links-awakening.jpg" width="320" height="160" />
+
 ## Usage
 
 ```sh
