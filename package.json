@@ -11,7 +11,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "test": "node --test test/"
   },
   "dependencies": {
     "htmlparser2": "^8.0.1"
