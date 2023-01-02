@@ -1,8 +1,11 @@
-# Links Awakening
-
-Recursively check a website for broken links.
-
-<img alt="Links Awakening" src="https://styfle.dev/images/projects/links-awakening.jpg" width="320" height="160" />
+<p align="center">
+  <a href="https://github.com/styfle/links-awakening">
+    <img alt="Photo of Link waking up" src="https://styfle.dev/images/projects/links-awakening.jpg" width="320" height="160" />
+    
+  </a>
+</p>
+<h3 align="center">Links Awakening</h3>
+<p align="center">Recursively check a website for broken links.</p>
 
 ## Usage
 
