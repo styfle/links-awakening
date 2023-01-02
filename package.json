@@ -11,11 +11,13 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "test": "node --test test/"
   },
   "dependencies": {
     "htmlparser2": "^8.0.1"
   },
+  "packageManager": "pnpm@7.21.0",
   "engines": {
     "node": ">=18"
   },
