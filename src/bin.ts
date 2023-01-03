@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 import { awaken, AwakenResult } from './index.js';
 
-// @ts-ignore
-const process = globalThis.process;
 const str = process.argv[2];
+if (str == null) {
+  console.error('Usage: links-awakening <url>');
+  process.exit(1);
+}
 const initUrl = new URL(str);
 const results = new Map<string, AwakenResult>();
 const onAwaken = ({ status, url, referer, msg }: AwakenResult) => {
