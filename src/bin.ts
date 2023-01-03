@@ -2,7 +2,7 @@
 import { awaken, AwakenResult } from './index.js';
 
 const str = process.argv[2];
-if (str == null) {
+if (!str) {
   console.error('Usage: links-awakening <url>');
   process.exit(1);
 }
@@ -23,6 +23,4 @@ const end = Date.now();
 const seconds = (end - start) / 1000;
 console.log(`Done! Awakened ${results.size} links in ${seconds} seconds`);
 
-if (!isSuccessful) {
-  process.exitCode = 1;
-}
+process.exit(isSuccessful ? 0 : 1);
