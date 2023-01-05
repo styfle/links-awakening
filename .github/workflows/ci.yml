@@ -33,3 +33,5 @@ jobs:
       - run: pnpm install
       - run: pnpm build
       - run: pnpm test
+      - run: pnpm lint:eslint
+      - run: pnpm lint:prettier
