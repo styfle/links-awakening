@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-import { awaken, AwakenResult } from './index.js';
+import type { AwakenResult } from './index.js';
+import { awaken } from './index.js';
 
 const str = process.argv[2];
 if (!str) {
@@ -9,14 +10,14 @@ if (!str) {
 const initUrl = new URL(str);
 const results = new Map<string, AwakenResult>();
 let isSuccessful = true;
-const onAwaken = ({ status, url, referer, msg }: AwakenResult) => {
-  if (200 <= status && status <= 299) {
+const onAwaken = ({ status, url, referer, msg }: AwakenResult): void => {
+  if (status >= 200 && status <= 299) {
     console.log(`✅ ${url}`);
   } else {
     isSuccessful = false;
     console.log(`❌ ${url} (status: ${msg ?? status}, referer: ${referer})`);
   }
-}
+};
 const start = Date.now();
 await awaken({ url: initUrl, onAwaken, results });
 const end = Date.now();

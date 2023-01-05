@@ -1,4 +1,4 @@
-import { Parser } from 'htmlparser2'
+import { Parser } from 'htmlparser2';
 
 export interface AwakenResult {
   url: string;
@@ -17,12 +17,12 @@ export interface AwakenProps {
   userAgent?: string;
 }
 
-const normalizeUrl = (url: URL) => {
+const normalizeUrl = (url: URL): string => {
   // since hash is client-side only, we must
   // remove it in order to avoid duplicate requests
   url.hash = '';
   return url.href;
-}
+};
 
 export async function awaken({
   url: rawUrl,
@@ -41,11 +41,11 @@ export async function awaken({
     url,
     referer,
     status: 999,
-  }
+  };
   results.set(url, result);
   const res = await fetch(url, {
     signal: AbortSignal.timeout(timeout),
-    headers: { 'user-agent': userAgent, referer, },
+    headers: { 'user-agent': userAgent, referer },
   }).catch((e: Error) => e);
   if (res instanceof Error) {
     if (res.cause instanceof Error) {
@@ -60,34 +60,38 @@ export async function awaken({
   if (res instanceof Error || !res.ok || depth === 0) {
     return; // error or we reached max depth so stop recursion
   }
-  const promises: Array<Promise<void>> = [];
+  const promises: Promise<void>[] = [];
   const parser = new Parser({
-		onopentag(name, { href }) {
-			if (name === 'a' && href) {
-				if (/https?:/.test(href)) {
+    onopentag(name, { href }) {
+      if (name === 'a' && href) {
+        if (/https?:/.test(href)) {
           // Set depth=0 to avoid crawling external URLs
-          promises.push(awaken({
-            onAwaken,
-            results,
-            url: new URL(href),
-            referer: url,
-            depth: 0
-          }));
+          promises.push(
+            awaken({
+              onAwaken,
+              results,
+              url: new URL(href),
+              referer: url,
+              depth: 0,
+            }),
+          );
         } else {
           // assume relative URL so decrement depth and crawl
-          promises.push(awaken({
-            onAwaken,
-            results,
-            url: new URL(href, url),
-            referer: url,
-            depth: depth - 1
-          }));
+          promises.push(
+            awaken({
+              onAwaken,
+              results,
+              url: new URL(href, url),
+              referer: url,
+              depth: depth - 1,
+            }),
+          );
         }
-			}
-		},
-	});
-  const html = await res.text()
-	parser.write(html);
-	parser.end();
+      }
+    },
+  });
+  const html = await res.text();
+  parser.write(html);
+  parser.end();
   await Promise.all(promises);
 }

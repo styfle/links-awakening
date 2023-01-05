@@ -1,7 +1,7 @@
 <p align="center">
   <a href="https://github.com/styfle/links-awakening">
     <img alt="Photo of Link waking up" src="https://styfle.dev/images/projects/links-awakening.jpg" width="320" height="160" />
-    
+
   </a>
 </p>
 <h3 align="center">Links Awakening</h3>
@@ -15,7 +15,7 @@ npx links-awakening 'https://styfle.dev'
 
 Output
 
-```
+```sh
 ✅ https://styfle.dev/
 ✅ https://styfle.dev/projects
 ✅ https://styfle.dev/blog
