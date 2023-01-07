@@ -33,6 +33,9 @@ export async function awaken({
   timeout = 5000,
   userAgent = 'npm:links-awakening',
 }: AwakenProps): Promise<void> {
+  if (rawUrl.protocol !== 'http:' && rawUrl.protocol !== 'https:') {
+    return; // cannot crawl non-http(s) urls so stop recursion
+  }
   const url = normalizeUrl(rawUrl);
   if (results.has(url)) {
     return; // already crawled this url so stop recursion
@@ -64,29 +67,26 @@ export async function awaken({
   const parser = new Parser({
     onopentag(name, { href }): void {
       if (name === 'a' && href) {
-        if (/https?:/.test(href)) {
-          // Set depth=0 to avoid crawling external URLs
-          promises.push(
-            awaken({
-              onAwaken,
-              results,
-              url: new URL(href),
-              referer: url,
-              depth: 0,
-            }),
-          );
-        } else {
-          // assume relative URL so decrement depth and crawl
-          promises.push(
-            awaken({
-              onAwaken,
-              results,
-              url: new URL(href, url),
-              referer: url,
-              depth: depth - 1,
-            }),
-          );
+        let absoluteUrl: URL;
+        let newDepth = 0;
+        try {
+          absoluteUrl = new URL(href);
+          // absolute/external href so set depth=0 to stop crawling deeper
+          newDepth = 0;
+        } catch {
+          absoluteUrl = new URL(href, url);
+          // relative/internal href so decrement depth and continue crawling
+          newDepth = depth - 1;
         }
+        promises.push(
+          awaken({
+            onAwaken,
+            results,
+            url: absoluteUrl,
+            referer: url,
+            depth: newDepth,
+          }),
+        );
       }
     },
   });
