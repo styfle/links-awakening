@@ -14,7 +14,7 @@
     "build": "tsc",
     "lint:eslint": "eslint \"**/*.{js,jsx,ts,tsx}\" --ignore-path \".lintignore\"",
     "lint:prettier": "prettier \".\" --check --ignore-path \".lintignore\"",
-    "test": "node --test test/"
+    "test": "node --test test/*.test.js"
   },
   "prettier": "@vercel/style-guide/prettier",
   "dependencies": {

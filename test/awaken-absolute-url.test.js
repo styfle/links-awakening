@@ -2,7 +2,7 @@ import assert from 'node:assert';
 import test from 'node:test';
 import { awaken } from '../dist/index.js';
 
-test('awaken example', async () => {
+test('should awaken absolute url example.vercel.sh', async () => {
   const initUrl = new URL('https://example.vercel.sh');
   const results = new Map();
   let count = 0;
