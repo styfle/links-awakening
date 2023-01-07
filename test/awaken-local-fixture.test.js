@@ -18,7 +18,7 @@ test('should awaken local fixture', async () => {
     assert.strictEqual(returnValue, undefined);
     assert.strictEqual(count, 8);
     assert.strictEqual(results.size, 8);
-    assert.ok(ms < 75, `should be quick, but took ${ms}ms`);
+    assert.ok(ms < (process.env.CI ? 200 : 75), `should be quick, but took ${ms}ms`);
     assert.deepStrictEqual(Array.from(results.values()), [
       {
         referer: '',
