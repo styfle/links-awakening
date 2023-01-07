@@ -4,9 +4,9 @@ specifiers:
   '@types/node': 18.11.18
   '@vercel/style-guide': 4.0.2
   eslint: 8.31.0
-  htmlparser2: ^8.0.1
+  htmlparser2: 8.0.1
   prettier: 2.8.1
-  typescript: ^4.9.4
+  typescript: 4.9.4
 
 dependencies:
   htmlparser2: 8.0.1
