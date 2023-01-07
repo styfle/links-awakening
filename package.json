@@ -1,6 +1,6 @@
 {
   "name": "links-awakening",
-  "version": "0.0.2",
+  "version": "0.0.0-development",
   "description": "Recursively check a website for broken links",
   "type": "module",
   "main": "dist/index.js",
@@ -12,8 +12,8 @@
   ],
   "scripts": {
     "build": "tsc",
-    "lint:eslint": "eslint \"**/*.{js,jsx,ts,tsx}\" --ignore-path \".gitignore\"",
-    "lint:prettier": "prettier \".\" --check --ignore-path \".gitignore\"",
+    "lint:eslint": "eslint \"**/*.{js,jsx,ts,tsx}\" --ignore-path \".lintignore\"",
+    "lint:prettier": "prettier \".\" --check --ignore-path \".lintignore\"",
     "test": "node --test test/"
   },
   "prettier": "@vercel/style-guide/prettier",
