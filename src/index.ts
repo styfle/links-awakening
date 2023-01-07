@@ -62,7 +62,7 @@ export async function awaken({
   }
   const promises: Promise<void>[] = [];
   const parser = new Parser({
-    onopentag(name, { href }) {
+    onopentag(name, { href }): void {
       if (name === 'a' && href) {
         if (/https?:/.test(href)) {
           // Set depth=0 to avoid crawling external URLs
