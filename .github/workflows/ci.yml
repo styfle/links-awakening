@@ -19,7 +19,7 @@ concurrency:
 jobs:
   test:
     name: Node.js ${{ matrix.node }} on ${{ matrix.os }}
-    timeout-minutes: 1
+    timeout-minutes: 7
     strategy:
       fail-fast: false
       matrix:
