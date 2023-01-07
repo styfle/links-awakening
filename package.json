@@ -12,8 +12,8 @@
   ],
   "scripts": {
     "build": "tsc",
-    "lint:eslint": "eslint \"**/*.{js,jsx,ts,tsx}\" --ignore-path \".gitignore\"",
-    "lint:prettier": "prettier \".\" --check --ignore-path \".gitignore\"",
+    "lint:eslint": "eslint \"**/*.{js,jsx,ts,tsx}\" --ignore-path \".lintignore\"",
+    "lint:prettier": "prettier \".\" --check --ignore-path \".lintignore\"",
     "test": "node --test test/"
   },
   "prettier": "@vercel/style-guide/prettier",
