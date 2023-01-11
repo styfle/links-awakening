@@ -1,4 +1,5 @@
 import { Parser } from 'htmlparser2';
+import fetch from 'node-fetch';
 
 export interface AwakenResult {
   url: string;
