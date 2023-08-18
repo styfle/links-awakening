@@ -37,18 +37,18 @@ Output
 ### Programmatic API
 
 ```ts
-import { awaken, type AwakenResult } from 'links-awakening'
+import { awaken, type AwakenResult } from 'links-awakening';
 
 const onAwaken = ({ url, status }: AwakenResult) => {
-  const icon = status >= 200 && status <= 299 ? '✅' : '❌'
-  console.log(`${icon} ${url}`)
+  const icon = status >= 200 && status <= 299 ? '✅' : '❌';
+  console.log(`${icon} ${url}`);
 };
 
-const url = new URL('https://example.com/blog')
+const url = new URL('https://example.com/blog');
 
-const results = new Map<string, AwakenResult>()
+const results = new Map<string, AwakenResult>();
 
-await awaken({ url, onAwaken, results })
+await awaken({ url, onAwaken, results });
 
-console.log(`Done! Crawled ${results.size} links.`)
+console.log(`Done! Crawled ${results.size} links.`);
 ```
