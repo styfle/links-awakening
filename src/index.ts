@@ -74,9 +74,13 @@ export async function awaken({
           // absolute/external href so set depth=0 to stop crawling deeper
           newDepth = 0;
         } catch {
-          absoluteUrl = new URL(href, url);
-          // relative/internal href so decrement depth and continue crawling
-          newDepth = depth - 1;
+          try {
+            absoluteUrl = new URL(href, url);
+            // relative/internal href so decrement depth and continue crawling
+            newDepth = depth - 1;
+          } catch {
+            return; // ignore invalid urls
+          }
         }
         promises.push(
           awaken({
