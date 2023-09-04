@@ -4,7 +4,10 @@ import { awaken } from '../dist/index.js';
 import { serveLocalFixture } from './server-helper.js';
 
 test('should awaken local fixture', async () => {
-  const { server, initUrl } = await serveLocalFixture('./fixture-protocols/', 5353);
+  const { server, initUrl } = await serveLocalFixture(
+    './fixture-protocols/',
+    5353,
+  );
   try {
     const results = new Map();
     let count = 0;
