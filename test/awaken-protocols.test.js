@@ -3,7 +3,7 @@ import test from 'node:test';
 import { awaken } from '../dist/index.js';
 import { serveLocalFixture } from './server-helper.js';
 
-test('should awaken local fixture', async () => {
+test('should awaken protocols fixture', async () => {
   const { server, initUrl } = await serveLocalFixture(
     './fixture-protocols/',
     5353,
