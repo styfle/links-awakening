@@ -12,6 +12,7 @@
   ],
   "scripts": {
     "build": "tsc",
+    "format": "prettier \".\" --write --ignore-path \".lintignore\"",
     "lint:eslint": "eslint \"**/*.{js,jsx,ts,tsx}\" --ignore-path \".lintignore\"",
     "lint:prettier": "prettier \".\" --check --ignore-path \".lintignore\"",
     "test": "node --test test/*.test.js"
